@@ -67,8 +67,9 @@ var dbInfo = childSnapshot.val();
   console.log("MINUTES TILL TRAIN= " + minsTillTrain);
 
   // Next Train
-  var nextTrainArrival = moment().add(minsTillTrain, "minutes");
-  console.log("ARRIVAL TIME= " + moment(nextTrainArrival).format("hh:mm"));
+  var nextTrainArrival1 = moment().add(minsTillTrain, "minutes");
+  var nextTrainArrival = moment(nextTrainArrival1).format("hh:mm");
+  console.log("15   ARRIVAL TIME= " + moment(nextTrainArrival1).format("hh:mm"));
 
   
 
@@ -81,8 +82,8 @@ var dbInfo = childSnapshot.val();
     trainDest: destination,
     trainTime: firstTrainTime,
     trainFreq: frequency,
-    trainMinsAway: minsTillTrain
-    //trainArrival: nextTrainArrival
+    trainMinsAway: minsTillTrain,
+    trainArrival: nextTrainArrival
 
   };
 
@@ -160,5 +161,5 @@ var dbInfo = childSnapshot.val();
   //$("#employee-table > tbody").append("<tr><td>" + Name + "</td><td>" + tDest + "</td><td>" +
   // tTime + "</td><td>" + tFreq + "</td><td>" + empRate + "</td><td>" + empBilled + "</td></tr>");
   console.log(" 50 - updating html table with new train data");
-  $("#train-table > tbody").append("<tr><td>" + name + "</td><td>" + destination + "</td><td>"  + frequency + "</td></tr>" + nextTrainArrival + "</td></tr>" + minsTillTrain + "</td></tr>");
+  $("#train-table > tbody").append("<tr><td>" + name + "</td><td>" + destination + "</td><td>"  + frequency + "</td><td>" + nextTrainArrival + "</td><td>" + minsTillTrain + "</td></tr>");
 });
